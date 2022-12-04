@@ -15,7 +15,29 @@ const product = {
             })
         }
         catch(err){
-            res.status(500).json({msg: 'Unsuccessful to retrieve data'})
+            return res.status(500).json({msg: 'Unsuccessful to retrieve data'})
+        }
+    },
+    createProduct: async(req,res)=>{
+        try{
+            const {name,price,category,quantity,status} = req.body;
+            const sellId = req.user._id
+            const newProduct = new Product({
+                name,price,category,quantity,status,seller: sellId
+            })
+            await newProduct.save();
+
+            res.status(200).json({
+                msg: 'Product saved!',
+                newProduct
+            })
+
+            await User.findOneAndUpdate({_id: req.user._id},{
+                $push: {sellItem : newProduct}
+            },{new: true})
+        }
+        catch(err){
+            return res.status(500).json({msg: err.message})
         }
     }
 }
