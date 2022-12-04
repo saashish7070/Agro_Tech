@@ -28,11 +28,8 @@ const user = {
     },
     order: [
         {
-            item: {
-                type: mongoose.Types.ObjectId,
-                ref: 'product'
-            },
-            quantity: Number
+            type: mongoose.Types.ObjectId,
+            ref: 'order'
         }
     ],
     reviews: [
@@ -49,13 +46,8 @@ const user = {
     ],
     sellItem: [
         {
-            item: {
-                types: mongoose.Types.ObjectId,
-                ref: 'product'
-            },
-            quantity: {
-                types: Number
-            }
+            type: mongoose.Types.ObjectId,
+            ref: 'order'
         }
     ]
 

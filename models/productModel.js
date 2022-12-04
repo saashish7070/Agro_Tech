@@ -35,6 +35,9 @@ const product = {
     rating: {
         type: Number
     },
+    averageRate: {
+        type: Number
+    },
     description:{
         type: String,
         required: true
