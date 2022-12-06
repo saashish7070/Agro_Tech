@@ -1,5 +1,5 @@
 const Product = require('../models/productModel')
-const Category = require('../models/categoryModel')
+// const Category = require('../models/categoryModel')
 class APIfeatures{
     constructor(query,queryString){
         this.query = query
@@ -19,7 +19,7 @@ class APIfeatures{
 const homepage = {
 getItems: async(req,res)=>{
         try{
-           const category = Category.find({}) 
+        //    const category = Category.find({}) 
            const features = new APIfeatures(Product.find({}),req.query) 
            const products = await features.query.sort('-createdAt')
            .populate('seller')
@@ -27,7 +27,7 @@ getItems: async(req,res)=>{
            res.json({
             msg: 'Success',
             result: products.length,
-            products,category
+            products
            })
         }
         catch(err){

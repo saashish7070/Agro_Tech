@@ -9,10 +9,6 @@ const product = {
         type: Number,
         required: true
     },
-    categories:{
-        types: mongoose.Types.ObjectId,
-        ref: 'category'
-    },
     quantity:{
         type: Number
     },

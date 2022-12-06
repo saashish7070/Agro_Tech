@@ -1,6 +1,6 @@
 const Product = require('../models/productModel')
 const User = require('../models/userModel')
-const Category = require('../models/categoryModel')
+// const Category = require('../models/categoryModel')
 
 
 const product = {
@@ -20,10 +20,10 @@ const product = {
     },
     createProduct: async(req,res)=>{
         try{
-            const {name,price,category,quantity,status} = req.body;
+            const {name,price,quantity,status} = req.body;
             const sellId = req.user._id
             const newProduct = new Product({
-                name,price,category,quantity,status,seller: sellId
+                name,price,quantity,status,seller: sellId
             })
             await newProduct.save();
 
@@ -38,6 +38,26 @@ const product = {
         }
         catch(err){
             return res.status(500).json({msg: err.message})
+        }
+    },
+    updateProduct: async(req,res)=>{
+        try{
+            const productId = req.params.id;
+            const {name,price,category,quantity,status} = req.body;
+            await Product.findByIdAndUpdate(productId,{
+                name, price, category, quantity , status
+            },(err,docs)=>{
+            if(err){
+                console.log(err)
+            }else{
+                res.json({
+                    msg: 'Product Updated',
+                    docs
+                })
+            }
+            })
+        }catch(err){
+            res.status(500).json({msg: err.message})
         }
     }
 }
