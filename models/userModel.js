@@ -11,8 +11,7 @@ const user = {
         index: {unique: true}
     },
     address: {
-        type: mongoose.Types.ObjectId,
-        ref: 'address',
+        type: String,
         required: true
     },
     post_number:{
@@ -23,7 +22,7 @@ const user = {
         required: true
     },
     email_address: {
-        type: mongoose.SchemaTypes.Email,
+        type: String,
         required: true
     },
     order: [

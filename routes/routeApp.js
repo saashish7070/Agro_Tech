@@ -1,7 +1,10 @@
 const router = require('express').Router()
 const homepageCtrl = require('../controllers/homepageCtrl')
+const userCtrl = require('../controllers/userCtrl')
+const userRouter = require('./userRouter')
 
-const routeApp = () => {
-    router.route('/homepage',homepageCtrl.getItems)
-}
-module.exports = routeApp;
+router.get('/',homepageCtrl.getItems)
+router.use('/user',userRouter);
+
+
+module.exports = router;

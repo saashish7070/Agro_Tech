@@ -43,23 +43,19 @@ const product = {
     updateProduct: async(req,res)=>{
         try{
             const productId = req.params.id;
-            const {name,price,category,quantity,status} = req.body;
-            await Product.findByIdAndUpdate(productId,{
-                name, price, category, quantity , status
-            },(err,docs)=>{
-            if(err){
-                console.log(err)
-            }else{
-                res.json({
-                    msg: 'Product Updated',
-                    docs
-                })
-            }
+            const userId = req.user._id
+            const {name,price,category,quantity,status,discount} = req.body;
+            const newProduct = await Product.findByIdAndUpdate(productId,{
+                name, price, category, quantity , status, discount, seller:userId
+            })
+            await User.findOneAndUpdate({_id: req.user._id},{
+                $push: {sellItem: newProduct}
             })
         }catch(err){
             res.status(500).json({msg: err.message})
         }
-    }
+    },
+
 }
 
 module.exports = product
