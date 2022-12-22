@@ -1,4 +1,5 @@
 const User = require('../models/userModel')
+const bcrypt = require('bcrypt');
 
 const userCtrl = {
     readAllUser:async(req,res)=>{
@@ -10,22 +11,6 @@ const userCtrl = {
             })
         }catch(err){
             res.status(500).json({msg: err.message});
-        }
-    },
-    createUser: async(req,res)=>{
-        try{
-           const {name,username,address,post_number,phone_number,email_address} = req.body;
-           const newUser = new User({
-            name,username,address,email_address,post_number,phone_number
-           })
-           await newUser.save();
-           res.json({
-            msg: 'User Created',
-            newUser
-           })
-        }
-        catch(err){
-            return res.status(500).json({msg: err.message})
         }
     },
     readUser: async(req,res)=>{
@@ -50,12 +35,12 @@ const userCtrl = {
     updateUser: async(req,res)=>{
         try{
            const {name,username,address,post_number,phone_number,email_address} = req.body;
-           const updatedUser = new User({
+           const updatedUser = {
             name,username,address,email_address,post_number,phone_number
-           })
-           await User.findByIdAndUpdate(req.params.id,updatedUser);
+           }
+           await User.findOneAndUpdate({"_id": req.params.id}, updatedUser);
            res.json({
-            msg: 'User Created',
+            msg: 'User Updated',
             updatedUser
            })
         }
@@ -73,8 +58,7 @@ const userCtrl = {
         catch(err){
             return res.status(500).json({msg: err.message})
         }
-    }
-
+    },
 }
 
 module.exports = userCtrl

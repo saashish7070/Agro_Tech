@@ -25,6 +25,10 @@ const user = {
         type: String,
         required: true
     },
+    password: {
+        type: String,
+        require: true
+    },
     order: [
         {
             type: mongoose.Types.ObjectId,
