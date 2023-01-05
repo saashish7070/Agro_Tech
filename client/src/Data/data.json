@@ -1,0 +1,127 @@
+[
+    {"category": "phone",
+     "items": [{
+        "id": 192,
+        "name": "iPhone",
+        "price": 1123213
+     },
+     {
+        "id": 117,
+        "name": "Nokia",
+        "price": 1123213
+     },
+     {
+        "id": 114,
+        "name": "Samsung",
+        "price": 1123213
+     },
+     {
+        "id": 100,
+        "name": "LG",
+        "price": 1123213
+     }]
+    },
+
+    {"category": "Guitar",
+     "items": [{
+        "id": 33,
+        "name": "Signature",
+        "price": 1123213
+     },
+     {
+        "id": 12,
+        "name": "Mantra",
+        "price": 1123213
+     },
+     {
+        "id": 89,
+        "name": "Givson",
+        "price": 1123213
+     },
+     {
+        "id": 90,
+        "name": "LG",
+        "price": 1123213
+     }]
+    },
+    {"category": "Football Clubs",
+    "items": [{
+        "id": 143,
+        "name": "Real Madrid",
+       "price": 1123213
+    },
+    {
+        "id": 88,
+        "name": "Barcelona",
+       "price": 1123213
+    },
+    {
+        "id": 99,
+        "name": "Chelsea",
+       "price": 1123213
+    },
+    {
+        "id": 81,
+        "name": "Manchester United",
+       "price": 1123213
+    }]
+   },
+   {"category": "Basketball Player",
+   "items": [{
+        "id": 74,
+        "name": "Lebron James",
+      "price": 1123213
+   },
+   {
+        "id": 62,
+        "name": "Stephen Curry",
+      "price": 1123213
+   },
+   {
+        "id": 22,
+        "name": "Kyrie Irving",
+      "price": 1123213
+   },
+   {
+        "id": 17,
+        "name": "Devin Booker",
+      "price": 1123213
+   }]
+  },
+  {"category": "Sports Brand",
+  "items": [{
+        "id": 62,
+        "name": "Adidas",
+     "price": 1123213
+  },
+  {
+        "id": 39,
+        "name": "Nike",
+     "price": 1123213
+  },
+  {
+        "id": 28,
+        "name": "PUMA",
+     "price": 1123213
+  },
+  {
+        "id": 15,
+        "name": "New Balance",
+     "price": 1123213
+  }]
+ },
+    
+ {"category": "Departments",
+ "items": [{"name":"Mango","price":31351},
+ {"name":"Orange",
+        "id": 3,
+        "price":63946},
+ {"name":"Kiwi",
+        "id": 112,
+        "price":32517},
+ {"name":"Mango",
+        "id": 125,
+        "price":81353}
+]
+}
+]

@@ -1,0 +1,149 @@
+
+
+.product{
+  border: 2px solid black;
+  // border-bottom: none;
+  img{
+    width: 100%;
+  } 
+}
+
+.submission-form{
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgba(0 , 0, 0, 0.2);
+  .user-input-wraper{
+    .user-input{
+      border-radius: 6px;
+      padding: 10px;
+    }
+  }
+}
+
+.navigation-bar{
+  background: green;
+  ul{
+    img{
+      width: 32px;
+    }
+    list-style: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  img{
+    width: 50px;
+  }
+  ul {
+    width: 100%;
+    list-style: none;
+    margin: 0 !important;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  li {
+
+    form{
+      display: flex;
+      padding: 10px;
+      input[type=text]{
+        padding: 10px 15px;
+        border-radius: 8px 0 0 8px;
+        border: none;
+        &:active{
+          border: none;
+        }
+      }
+      button{
+        border: none;
+        border-radius: 0 8px 8px 0;
+        &:active{
+          background: grey;
+        }
+      }
+    }
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    &:hover {
+      background-color: #444;
+    }
+  }
+}
+
+footer{
+  background-color: #333;
+  ul{
+    li{
+      list-style: none;
+      a{
+        text-decoration: none;
+      }
+    }      
+  }
+  .line{
+    height: 1px;
+    width: 90vw;
+    background-color: grey;
+    margin: auto;
+  }
+  .page-bottom{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      margin: 10px;
+    }
+  }
+
+}
