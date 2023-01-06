@@ -21,7 +21,7 @@ const product = {
     createProduct: async(req,res)=>{
         try{
             const {name,price,quantity,status} = req.body;
-            const sellId = req.user._id
+            const sellId = req.params.id;
             const newProduct = new Product({
                 name,price,quantity,status,seller: sellId
             })
@@ -32,7 +32,7 @@ const product = {
                 newProduct
             })
 
-            await User.findOneAndUpdate({_id: req.user._id},{
+            await User.findOneAndUpdate({_id: req.params.id},{
                 $push: {sellItem : newProduct}
             },{new: true})
         }
@@ -43,7 +43,7 @@ const product = {
     updateProduct: async(req,res)=>{
         try{
             const productId = req.params.id;
-            const userId = req.user._id
+            const userId = req.params.id;
             const {name,price,category,quantity,status,discount} = req.body;
             const newProduct = await Product.findByIdAndUpdate(productId,{
                 name, price, category, quantity , status, discount, seller:userId

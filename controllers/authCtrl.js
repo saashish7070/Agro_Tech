@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/userModel')
 const bcrypt = require('bcrypt')
-const cookie = require('cookie-parser')
+
 const authCtrl = {
     signUp: async(req,res) => {
             try{
@@ -21,7 +21,7 @@ const authCtrl = {
 
             res.cookie('refreshtoken',refresh_token,{
                 httpOnly: true,
-                path:'/admin/refresh_token',
+                path:'/',
                 maxAge: 30*24*60*60*1000
             })
             await newUser.save()
@@ -46,10 +46,11 @@ const authCtrl = {
             if(!bcrypt.compare(password,user.password)) return res.json({msg: 'Incorrect Password'});
             const accessToken = createAccessToken({id : user._id});
             const refreshToken = createRefreshToken({id : user._id});
-            res.cookie('refreshtoken',refreshToken,{
+            res.cookie('refreshtoken',refreshToken
+            ,{
                 httpOnly: true,
-                path:'/admin/refresh_token',
-                maxAge: 30*24*60*60*1000
+                path:'/',
+                maxAge: 30*24*60*60*1000,
             })
             res.json({
                 msg: 'Login Successfully',
@@ -73,7 +74,12 @@ const authCtrl = {
         }
     },
     generateToken: async(req,res)=>{
-        res.json({msg: 'Refresh Token Created'});
+        try{
+            console.log("Cookie Error");
+        }
+        catch(err){
+            res.status(500).json({msg: 'Token could not be generated successfully'});
+        }
     }
 }
 

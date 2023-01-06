@@ -4,6 +4,7 @@ const authCtrl = require('../controllers/authCtrl')
 const auth = require('../config/auth');
 
 
+router.get('/accesstoken',authCtrl.generateToken);
 router.get('/users',auth,userCtrl.readAllUser);
 router.get('/:id',auth,userCtrl.readUser);
 router.put('/update/:id',auth,userCtrl.updateUser);

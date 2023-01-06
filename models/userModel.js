@@ -5,10 +5,22 @@ const user = {
         type: String,
         required: true
     },
+    is_admin:{
+        type: Boolean
+    },
+    firstName: {
+      type: String  
+    },
+    lastName: {
+        type: String
+    },
     username:{
         type: String,
         required: true,
         index: {unique: true}
+    },
+    image: {
+        type: String
     },
     address: {
         type: String,
