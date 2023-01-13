@@ -1,101 +1,56 @@
+import styled from '@emotion/styled'
+import { AppBar, Box, CssBaseline, Link, Stack, Toolbar, Typography } from '@mui/material'
+import React from 'react'
+import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
+import EssentialSearch from './EssentialSearch';
 
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-
-const drawerWidth = 240;
-const navItems = ['Home', 'Categories', 'Latest Rates','Register','Login'];
-
-function Navbar(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center'}}>
-      <Typography variant="h6" sx={{ my: 1 }}>
-        AgroTech
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} component="a" disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-
+const Navbar = () => {
+  const NavTool = styled(Toolbar)({
+    justifyContent: 'space-between'
+  });
+  const MenuData = styled(Box)({
+    justifyContent:'space-between'
+  })
+  const Typo = styled(Typography)({
+    minWidth: 20,
+     color: 'white',
+      cursor: 'pointer',
+       p:0.1,
+  })
+  const NavElement = styled(Stack)({
+    marginRight: '30px',
+    cursor: 'pointer',
+    "&:hover":{
+      color: 'white'
+      }
+  })
   return (
-    <Box sx={{ display: 'flex' }}>
+    <AppBar position='static' sx={{background: 'linear-gradient(to right bottom,#118708, #a65602)'}}>
       <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 5, display: { xs: 'none', sm: 'flex' },color: 'white' }}
-          >
-           AgroTech
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
+      <NavTool>
+        <Link href='http://localhost:3000/' sx={{textDecoration: 'none'}}>
+          <Typography variant='h5' sx={{color: 'white',cursor:'pointer'}} >AgroTech</Typography>
+        </Link>
+        <EssentialSearch />
+        <MenuData>
+              <Box sx={{display: 'flex' ,justifyContent: 'space-between'}}>
+                  <Link href='http://localhost:3000/signIn' sx={{textDecoration: 'none' }}>
+                      <NavElement direction='row'><AccountCircleRoundedIcon /><Typo>Sign In</Typo></NavElement>
+                  </Link>    
+                  <Link href='http://localhost:3000/register' sx={{textDecoration: 'none'}}>
+                      <NavElement direction='row'><PersonAddAltRoundedIcon/> <Typo >Register</Typo></NavElement>
+                  </Link>
+                  <Link href='http://localhost:3000/cart' sx={{textDecoration: 'none'}}>
+                      <NavElement direction='row'><ShoppingCartSharpIcon/> <Typo >Cart</Typo></NavElement>
+                  </Link>
           </Box>
-        </Toolbar>
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-    </Box>
-  );
+          
+        </MenuData>
+      </NavTool>
+    </AppBar>
+  )
 }
 
-
-export default Navbar;
+export default Navbar

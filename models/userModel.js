@@ -6,7 +6,8 @@ const user = {
         required: true
     },
     is_admin:{
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     firstName: {
       type: String  
