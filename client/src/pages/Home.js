@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import { Box, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Box, Divider, Grid, Paper, Stack, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import Product from '../components/Product';
-import Advertisement from '../components/Advertisement';
+import Testimonial from '../components/Testimonial';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: 'white',
@@ -54,8 +54,9 @@ const Home = () =>{
                         {container.map(item=> <Product item={item} key={item}/>)}
                 </Grid>
             </Box>
+            <Divider />
             <Box sx={{display:'flex',justifyContent:"center",mt: 2}}>
-                    <Advertisement ad={ad} key={ad} />
+                    <Testimonial />
             </Box>
         </div>
     )

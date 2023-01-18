@@ -8,6 +8,11 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Home from './pages/Home';
 import SecNavBar from './components/SecNavBar';
 import Track from './components/Track';
+import Footer from './components/Footer';
+import SignIn from './pages/SignIn';
+import Register from './pages/Register';
+import Cart from './pages/Cart';
+import Categories from './pages/Categories';
 
 const theme = createTheme({
   palette: {
@@ -17,6 +22,9 @@ const theme = createTheme({
     secondary:{
       main: '#a65602'
     },
+    info:{
+      main: '#3b5998'
+    }
   }
 })
 function App() {
@@ -31,10 +39,16 @@ function App() {
           <Routes>
           <Route exact path='/' element={< Home />}></Route>
           <Route exact path='/items' element={<Items />}></Route>
-          
+          <Route exact path='/signIn' element={<SignIn />}></Route>
+          <Route exact path='/register' element={<Register />}></Route>
+          <Route exact path='/cart' element={<Cart />}></Route>
+          <Route exact path='/categories' element={<Categories />}></Route>
+
           </Routes>
+          <br />
+          <Footer />
         </Router>
-          {/* <EssentialSearch /> */}
+          
       </div>
     </ThemeProvider>
   );

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Box, Button, Card, CardMedia, Grid, Rating, Stack, Typography } from '@mui/material'
+import { Box, Button, Grid, Rating, Stack, Typography } from '@mui/material'
 import React from 'react'
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
